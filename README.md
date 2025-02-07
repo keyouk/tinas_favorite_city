@@ -1,10 +1,10 @@
-# 🎯 Tina's Favorite City Debugger
+# Tina's Favorite City Debugger
 
 A debugging tool to analyze and optimize responses from OpenAI's Assistants API, specifically focusing on **truncated responses from Code Interpreter**.
 
 ---
 
-## 🚀 Setup & Installation
+## Setup & Installation
 
 ### 1. Install Dependencies
 Run the following command to install required packages:
