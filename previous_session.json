@@ -1,0 +1,9 @@
+{
+    "thread_id": "thread_eZXRa51m5cv35WfwPRGRnZwu",
+    "assistant_id": "asst_IvKj467U0ta1D5zFy7bRSQI8",
+    "run_id": "run_CvRQKq4lQtje9SseAoVytG7W",
+    "max_prompt_tokens": 10000,
+    "max_completion_tokens": 10000,
+    "temperature": 0.1,
+    "top_p": 0.1
+}

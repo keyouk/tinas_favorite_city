@@ -1,0 +1,7 @@
+{
+	"max_prompt_tokens":10000,
+	"max_completion_tokens": 10000,
+	"temperature":0.1,
+	"top_p":0.1,
+	"instructions":"You are an assistant that will give a person's city and entire reason as to why from the csv provided. The favourite city and why column is column 6 in the csv"
+}
