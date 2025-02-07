@@ -66,11 +66,11 @@ def load_json_file(filename):
             data = json.load(file)
             if not isinstance(data, dict):
                 print(f"Error: {filename} does not contain a valid JSON object.")
-                return {}  # Ensure it returns an empty dictionary, not None
+                return {}  
             return data
     except FileNotFoundError:
         print(f"Error: {filename} not found.")
-        return {}  # Ensure it returns an empty dictionary
+        return {}  
     except json.JSONDecodeError:
         print(f"Error: {filename} contains invalid JSON.")
-        return {}  # Ensure it returns an empty dictionary
+        return {}  
