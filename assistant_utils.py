@@ -1,23 +1,5 @@
-
 from openai import OpenAI
-from dataclasses import dataclass, field, asdict
 import json
-
-
-
-@dataclass
-class Config:
-    name: str = ""
-    model: str = "gpt-4o"
-    description: str = ""
-    instructions: str = ""
-    tools: list = field(default_factory=lambda: [{"type": "code_interpreter"}])
-    tool_resources: dict = field(default_factory=lambda: {
-        "code_interpreter": {"file_ids": []}
-    })
-    temperature: float = 0.5
-    top_p: float = 1.0
-    response_format: str = "auto"
 
 
 

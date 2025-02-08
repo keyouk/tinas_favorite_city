@@ -1,8 +1,6 @@
 
 from openai import OpenAI
 from assistant_utils import create_assistant, list_assistants, upload_file, load_json_file, log_session_parameters
-from typing_extensions import override
-from openai import AssistantEventHandler
 import time
 import json
 
@@ -10,9 +8,8 @@ import json
 client = OpenAI()
 
 
-def create_session():
+def create_session(message):
 	parameters = load_json_file("config/parameters.json")
-	print(parameters)
 
 	assistant_name = parameters["assistant_name"]
 	my_assistants = list_assistants(client)
@@ -29,10 +26,11 @@ def create_session():
 	try:
 		thread = client.beta.threads.create(
 			)
+
 		message = client.beta.threads.messages.create(
 			thread_id=thread.id,
 			role="user",
-			content="what is Tina Escobar's Favorite City"
+			content=message
 			)
 
 		run = client.beta.threads.runs.create_and_poll(
@@ -49,7 +47,6 @@ def create_session():
 			messages = client.beta.threads.messages.list(
 				thread_id=thread.id,
 				)
-			print(f"\n {run}")
 
 			for message in messages:
 				print(f"\n {message.content[0].text.value}")

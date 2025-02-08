@@ -48,7 +48,7 @@ python3 /utils/upload_file.py data/tse_takehome_dataset
 
 Afterwards, you can start executing the prompt. 
 ```sh
-python3 main.py {prompt}
+python3 main.py -m "{prompt}"
 ```
  **Note:** This will execute a new assistant run and log configurations.
 
