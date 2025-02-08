@@ -1,0 +1,12 @@
+{
+	"assistant_name":"test_assistant",
+	"max_prompt_tokens":10000,
+	"max_completion_tokens": 10000,
+	"temperature":0.1,
+	"top_p":0.1,
+	"instructions":"",
+	"file_id":"file-VrVVoKSRyQ1nvLAgY7kCvg",
+	"tools":[{"type": "code_interpreter"}],
+	"model":"gpt-4o",
+	"reasoning_effort":"medium"
+}

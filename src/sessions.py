@@ -10,33 +10,21 @@ import json
 client = OpenAI()
 
 
-def create_session(assistant_name, file_name):
-	parameters = load_json_file("parameters.json")
-	if file_name is not None:
-		file_data = upload_file(client, file_name)
-		file_id = file_data.id
-		while True:
-			file_status = client.files.retrieve(file_id)
-			if file_status.status == "processed":
-				print(f"File {file_id} is ready!")
-				print(f"{file_data}")
-				break
-			time.sleep(5)
+def create_session():
+	parameters = load_json_file("config/parameters.json")
+	print(parameters)
 
-
+	assistant_name = parameters["assistant_name"]
 	my_assistants = list_assistants(client)
-	assistant_name = f"{assistant_name}"
 	if assistant_name not in my_assistants:
 		try:
 			print(f"Could not find assistant, creating new assistant")
-			assistant = create_assistant(assistant_name, client)
-			print(f'created {assistant.id}')
+			assistant = create_assistant(parameters)
 			create_session(assistant_name, file_name)
 		except Exception as e:
 			print(f"An Error Occurred: {e}")
 	else:
 		assistant = my_assistants[assistant_name]
-		assistant.tool_resources = {"code_interpreter": {"file_ids": [file_id]}}
 	
 	try:
 		thread = client.beta.threads.create(

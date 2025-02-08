@@ -21,10 +21,16 @@ class Config:
 
 
 
-def create_assistant(assistant_name, client):
-    assistant_config = Config(name=assistant_name)
-    assistant_dict = asdict(assistant_config)
-    assistant = client.beta.assistants.create(**assistant_dict)
+def create_assistant(parameters):
+    client = OpenAI()
+    assistant = client.beta.assistants.create(
+        name = parameters["assistant_name"],
+        model = parameters["model"],
+        tools = parameters["tools"],
+        top_p = parameters["top_p"],
+        temperature = parameters["temperature"]
+        )
+    print(f'created {assistant.id}')
     return assistant
 
 
@@ -58,6 +64,7 @@ def log_session_parameters(parameters,thread_id,run_id,assistant_id):
     }
     with open("previous_session.json", "w") as file:
         json.dump(data, file, indent=4)
+    return 
 
 
 def load_json_file(filename):

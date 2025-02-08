@@ -1,10 +1,11 @@
-from openai import OpenAI
+import os
 import json
+from openai import OpenAI
 
 
 
-filename = "previous_session.json"
-
+script_dir = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(script_dir, "../config/previous_session.json")
 
 try:
     with open(filename, "r") as file:
